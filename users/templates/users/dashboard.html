@@ -1,0 +1,75 @@
+{% extends 'base-mobile.html' %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'styles/dashboard.css' %}" class="css">
+{% endblock %}
+{% block script_link %}
+<script src="{% static 'js/dashboard.js'%}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $("#file-name").text(fileName)
+        });
+    });
+</script>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content-holder">
+        <div class="media-container">
+        <div class="profile-image">
+            {% if profile.channel_logo %}
+            <img id="profile-pic" src="{{profile.channel_logo.url}}">
+            {% else %}
+            <img id="profile-pic" src="{% static 'media/guest_mod.png' %}">
+            {% endif %}
+            <button id="image-edit-btn"><img src="{% static 'media/pencil_mod.png '%}" width="25px"  height="25px"></button>
+        </div>
+        
+        </div>
+        
+        <div class="edit-profile-image">
+            <h3>Update Profile Picture</h3>
+            <hr>
+            <form id="image-upload-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label id="image-upload-field">
+                    Upload Image
+                    <img src="{% static 'media/image_mod.png' %}" width="25px" height="25px" style="margin-top: 0px;">
+                    
+                {{form.channel_logo}}
+            </label>
+            <p id="file-name"></p>
+            <input type="submit" value="SAVE" id="save-button">
+            
+            </form>
+            <button   id="cancel-btn" onclick="hideDiv()">⇽</button>
+        </div>
+        <div class="detail-container">
+            <ul class="my-video-list">
+                <h3 id="title-my-videos">MY VIDEOS</h3>
+                {% if videos %}
+                {% for i in videos %}
+                <li class="video-container"> 
+                    <a href="{% url 'PlayerPage' i.id %}"><video class="thumbnail" preload="metadata" width="320" height="240">
+                        <source src="{{i.video.url}}#t=26" type="video/mp4">
+                      </video></a>
+                      <div class="video-details">
+                      <h3 class="video-title">{{i.title}}</h3>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                <li style="width:100%; text-align: center; margin-top: 10px; font-size: 16px;">You've no videos.</li>
+                {% endif %}
+                </ul>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

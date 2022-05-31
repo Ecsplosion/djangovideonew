@@ -1,0 +1,49 @@
+{% extends 'base-mobile.html' %}
+{% load static %}
+{% block title %}
+{{video.title}}
+{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'styles/player.css' %}" class="css">
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content-holder">
+        <div class="video-player">
+        <video class="video-media" preload="metadata"  controls>
+            <source src="{{video.video.url}}" type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="video-details">
+            <form id="video-stats-form" action="{% url 'VideoReviewPage' video.id%}" method="POST" >
+                {% csrf_token %}
+            <ul class="video-stats">
+                <li><button name="" value="" id=""><img src="{% static 'media/eye_mod.png' %}" ><p class="number">123</p></button></li>
+                <li><button name="like_video" value="{{video.id}}" id="">
+                    {% if user_review == "liked" %}
+                    <img src="{% static 'media/like_mod.png' %}" >
+                    {% else %}
+                    <img src="{% static 'media/like_base.png' %}" >
+                    
+                    {% endif %}
+                    <p class="number">{{likes}}</p></button></li>
+                <li><button name="dislike_video" value="{{video.id}}" id="">
+                    {% if user_review == "disliked" %}
+                    <img src="{% static 'media/dislike_mod.png' %}" >
+                    {% else %}
+                    <img src="{% static 'media/dislike_base.png' %}" >
+                    {% endif %}
+                    <p class="number">{{dislikes}}</p></button></li>
+                <li><button name="" value="" id=""><img src="{% static 'media/comment_mod.png' %}" ><p class="number">126</p></button></li>
+            </ul>
+        </form>
+            <div class="channel-details">
+            <img id="channel_logo" src="{{profile.channel_logo.url}}" width="60px" height="60px">
+                <h4>{{video.owner.name}}</h4>
+                <button id="follow-btn">Follow</button>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

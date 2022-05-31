@@ -1,0 +1,23 @@
+{% extends 'base-mobile.html '%}
+{% load static %}
+{% block title %}Upload Video{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'styles/upload-video.css' %}" class="css">
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content-holder">
+        <form action="" method="POST" id="video-upload-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.title}}
+            {{form.description}}
+            <label id="video-input-label">
+                Upload Video 
+                {{form.video}}
+            </label>
+            <br>
+            <input type="submit" value="Submit" id="video-upload-btn">
+        </form>
+    </div>
+</div>
+{% endblock %}

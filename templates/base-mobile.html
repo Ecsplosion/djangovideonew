@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/m-base.css' %}" class="cs">
+ 
+    {% block css_link %} {% endblock %}
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <button id="menu-button"><img src="{% static 'media/three_lines_mod.png' %}" width="50px"></button>
+        <img src="{% static 'media/dtube-logo.png ' %}" width="125px">
+    </header>
+    <div class="main-body">
+    <div id="hidden-menu">
+        <div class="menu-content">
+            <div class="profile-pic-box">
+                <div class="image-holder">
+                    {% if Profile.channel_logo %}
+                    <img src="{{Profile.channel_logo.url}}" width="100px">
+                    {% else %}
+                    <img src="{% static 'media/guest_mod.png '%}" width="100px">
+                    {% endif %}
+                    <h2 id="user_name">
+                    {% if request.user.is_authenticated %}
+                    {{Profile.name}}
+                    {% else %}
+                        Guest
+                        {% endif %}
+                    </h2>
+                </div>
+            </div>
+            <div class="profile-details-box">
+                <ul class="menu-list">
+                    {% if request.user.is_authenticated %}
+                    {% else %}
+                    <li><a href="{% url 'SignInPage' %}"><button>Sign In</button></a></li> 
+                    <li><a href="{% url 'SignUpPage' %}"><button>Sign Up</button></a></li> <br>
+                    {% endif %}
+                    <li><a href=""><button>Recommended</button></a></li>
+                    <li><a href=""><button>Most Liked</button></a></li>
+                    <li><a href=""><button>Most Viewed</button></a></li>      
+                    <li><a href=""><button>Your Channel</button></a></li>
+                    <li><a href=""><button>Subscriptions</button></a></li>
+                    
+                    {% if request.user.is_authenticated %}
+                    <br>
+                    <li><a href="{% url 'LogOutPage' %}"><button>Log out</button></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-container">
+    {% block body %} {% endblock %}
+    </div>
+</div>
+    <footer>
+        <img id="bell-image" src="{% static 'media/bell_mod.png' %}" width="25px">
+        <a href="{% url 'HomePage' %}"><img id="home-image" src="{% static 'media/home_color_mod.png' %}" width="25px">
+        </a>
+        <a href="{% url 'UploadPage' %}">
+            <img id="camera-image"src="{% static 'media/camera_mod.png' %}" width="25px">
+        </a>
+    </footer>
+    <script src="{% static 'js/menu-button.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block script_link %}
+    {% endblock %}    
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base-mobile.html' %}
+{% load static %}
+{% block title %}Sign In{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'styles/sign-in.css' %}" class="css">
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content-holder">
+        <form autocomplete="off"  action="" id="signup-form" method="POST" >
+            {% csrf_token %}
+            <label for="email">Email Address</label>
+          
+          <!--
+            <input   class="signup-form-fields" type="text" placeholder="First Name..." id="first_name">
+            <input  class="signup-form-fields"  type="text" placeholder="Last Name..." id="last_name">  -->
+            <input name="email" class="signup-form-fields"   type="email" placeholder="Enter Email address..."  id="email">
+            <label for="password">Password</label>
+            <input name="password" class="signup-form-fields"  type="password" placeholder="Enter Password..."   id="password"> 
+            
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+    </div> 
+    </div>
+{% endblock %}

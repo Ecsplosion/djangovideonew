@@ -1,0 +1,36 @@
+{% extends 'base-mobile.html' %}
+{% load static %}
+{% block title %}
+SIGN UP
+{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'styles/signup.css' %}" class="css">
+{% endblock %}
+{% block script_link %}
+<script src="{% static 'js/signup-form.js' %}" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content-holder">
+        <form autocomplete="off"  action="" id="signup-form" method="POST" >
+            {% csrf_token %}
+            
+            {{form.first_name}}
+            {{form.last_name}}
+            {{form.username}}
+            {{form.password1}}
+            {{form.password2}}
+          <!--
+            <input   class="signup-form-fields" type="text" placeholder="First Name..." id="first_name">
+            <input  class="signup-form-fields"  type="text" placeholder="Last Name..." id="last_name">  
+            <input class="signup-form-fields"   type="email" placeholder="Enter an email address..." readonly onfocus="this.removeAttribute('readonly');" id="email"  autocomplete="off">
+            <input class="signup-form-fields"  type="password" placeholder="Enter a strong password" readonly onfocus="this.removeAttribute('readonly');"  id="password" autocomplete="off"> -->
+            
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+        <h2 id="welcome_sign">Welcome!</h2>
+        <br><br><br>
+        <h2 id="tsu">ツ</h2>
+    </div> 
+    </div>
+{% endblock %}
