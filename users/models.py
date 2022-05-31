@@ -17,7 +17,6 @@ class UserProfile(models.Model):
     name = models.CharField(max_length=100, null=True, blank=False)
     user= models.OneToOneField(User, on_delete=models.CASCADE)
     subscriptions = models.ManyToManyField("UserProfile",  blank=True)
-    videos = models.ManyToManyField(Video, blank=True, db_column="my_videos")
     profile_created = models.DateField(auto_now_add=True)
     channel_logo = models.ImageField(null=True, blank=True)
     def __str__(self):
