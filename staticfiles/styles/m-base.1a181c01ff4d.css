@@ -1,0 +1,115 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
+-webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
+-moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
+}
+.main-body{
+    position: relative;
+    width: 100%;
+    height: 90vh;
+
+    overflow: hidden;
+    /* -ms-overflow-style: none; 
+    scrollbar-width: none;   */
+}
+.scroll-container{
+    height: 98%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+/* .main-body::-webkit-scrollbar {
+    display: none;
+  } */
+#menu-button{
+    background: none;
+    border: none;
+}
+.menu-content{
+    width: 95%;
+    height: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.image-holder{
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+.image-holder img{
+    border-radius: 70px;
+}
+#user_name{
+    color: white;
+}
+.profile-pic-box{
+    width: 100%;
+    height: 35%;
+}
+.profile-details-box{
+    width: 100%;
+    height: 49%;
+}
+.menu-list{
+    list-style: none;
+    margin-left: 10px;
+}
+.menu-list li{
+    margin-bottom: 6px;
+    background-color: #5fb33b0a;
+}
+.menu-list li button{
+    background:none;
+    border: none;
+    color: white;
+    font-family:"Titillium Web";
+    font-weight: bold;
+    font-size: 22px;
+}
+#hidden-menu{
+    z-index: 1000;
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    
+    transition: all 1s;
+    height: 100vh;
+    background-color: rgb(9 46 32 / 93%);
+}
+.visible-m{
+    transform: translateX(0%);
+}
+.invisible-m{
+    transform: translateX(-100%);
+}
+footer{
+    z-index: 1500;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: -1px -4px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px -4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -4px 5px 0px rgba(0,0,0,0.75);
+}
+#home-image{
+    margin-top: -5px;
+}
+#camera-image{
+    margin-top: 2px;
+}

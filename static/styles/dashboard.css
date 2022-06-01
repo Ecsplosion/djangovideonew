@@ -11,6 +11,8 @@
 .media-container{
     width: 95%;
     height: 45%;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 .profile-image{
     width: 100px;
@@ -18,7 +20,7 @@
     margin: 0 auto;
     margin-top: 20px;
     border-radius: 80px;
-    border : 2px solid #092e20;
+    border: 2px solid #092e20;
     padding: 5px;
     text-align: center;
 }
@@ -42,17 +44,23 @@
    
     margin: 0 auto;
 }
-.edit-profile-image{
-    z-index: 400;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: all 1s;
-    position: absolute;
-    width: 90%;
-    top: 20px;
-    right: -500px;
-    background: white;
-    border-radius: 10px;
-    height: 300px;
+#edit-profile-image{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+transition: all 1s;
+width: 105%;
+top: 20px;
+background: white;
+border-radius: 10px;
+height: 300px;
+margin: 0 auto;
+position: absolute;
+top: 10px;
+}
+.visible-p{
+    transform:  translateX(0%);
+}
+.invisible-p{
+    transform: translateX(100%);
 }
 #image-upload-form{
     z-index: 900;

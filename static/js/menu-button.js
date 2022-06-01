@@ -1,9 +1,11 @@
 const menuButton = document.getElementById("menu-button")
 const hiddenMenu = document.getElementById("hidden-menu")
+
 menuButton.addEventListener("click", function(){
-    if(hiddenMenu.style.left =="0px"){
-        hiddenMenu.style.left = "-338px"
+    var className = hiddenMenu.className;
+    if(className =="invisible-m"){
+        hiddenMenu.className = "visible-m"
     } else {
-        hiddenMenu.style.left = "0px"
+        hiddenMenu.className = "invisible-m"
     }
 })

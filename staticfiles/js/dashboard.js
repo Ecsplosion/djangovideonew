@@ -1,12 +1,13 @@
-const editDiv = document.getElementsByClassName("edit-profile-image")[0];
+const editDiv = document.getElementById("edit-profile-image");
 const a_list = editDiv.getElementsByTagName("a")[0]
+
 //const inputField = document.getElementsByClassName("image_upload_field")[0]
 const divToggle = document.getElementById("image-edit-btn")
 divToggle.addEventListener("click", function(){
-    editDiv.style.right = "20px"
+    editDiv.className = "visible-p"
 })
 function hideDiv(){
-    editDiv.style.right = "-500px"
+    editDiv.className = "invisible-p"
 }
 
 a_list.style.display = "none"

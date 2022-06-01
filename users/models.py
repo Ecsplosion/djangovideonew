@@ -2,9 +2,14 @@ from django.db import models
 import uuid
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+import os
+from django.core.exceptions import ValidationError
 # Create your models here.
+def validate_file_extension(value):
+    if value.file.content_type != 'video/mp4':
+        raise ValidationError(u'Error message')
 class Video(models.Model):
-    video = models.FileField()
+    video = models.FileField(validators=[validate_file_extension])
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200, null=True,blank=False)
     likes = models.ManyToManyField(User, related_name="video_likes")

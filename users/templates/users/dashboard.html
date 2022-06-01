@@ -22,6 +22,7 @@ Dashboard
 <div class="container">
     <div class="content-holder">
         <div class="media-container">
+            
         <div class="profile-image">
             {% if profile.channel_logo %}
             <img id="profile-pic" src="{{profile.channel_logo.url}}">
@@ -30,10 +31,7 @@ Dashboard
             {% endif %}
             <button id="image-edit-btn"><img src="{% static 'media/pencil_mod.png '%}" width="25px"  height="25px"></button>
         </div>
-        
-        </div>
-        
-        <div class="edit-profile-image">
+        <div id="edit-profile-image" class="invisible-p">
             <h3>Update Profile Picture</h3>
             <hr>
             <form id="image-upload-form" method="POST" enctype="multipart/form-data">
@@ -50,6 +48,9 @@ Dashboard
             </form>
             <button   id="cancel-btn" onclick="hideDiv()">⇽</button>
         </div>
+        </div>
+        
+      
         <div class="detail-container">
             <ul class="my-video-list">
                 <h3 id="title-my-videos">MY VIDEOS</h3>
@@ -57,7 +58,7 @@ Dashboard
                 {% for i in videos %}
                 <li class="video-container"> 
                     <a href="{% url 'PlayerPage' i.id %}"><video class="thumbnail" preload="metadata" width="320" height="240">
-                        <source src="{{i.video.url}}#t=26" type="video/mp4">
+                        <source src="{{i.video.url}}#t=26">
                       </video></a>
                       <div class="video-details">
                       <h3 class="video-title">{{i.title}}</h3>
