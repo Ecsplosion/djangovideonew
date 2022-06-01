@@ -64,13 +64,14 @@
     <script src="{% static 'js/base.js' %}"></script>
     {% block script_link %}
     {% endblock %}    
+    <footer>
+        <img id="bell-image" src="{% static 'media/bell_mod.png' %}" width="25px">
+        <a href="{% url 'HomePage' %}"><img id="home-image" src="{% static 'media/home_color_mod.png' %}" width="25px">
+        </a>
+        <a href="{% url 'UploadPage' %}">
+            <img id="camera-image"src="{% static 'media/camera_mod.png' %}" width="25px">
+        </a>
+    </footer>
 </body>
-<footer>
-    <img id="bell-image" src="{% static 'media/bell_mod.png' %}" width="25px">
-    <a href="{% url 'HomePage' %}"><img id="home-image" src="{% static 'media/home_color_mod.png' %}" width="25px">
-    </a>
-    <a href="{% url 'UploadPage' %}">
-        <img id="camera-image"src="{% static 'media/camera_mod.png' %}" width="25px">
-    </a>
-</footer>
+
 </html>

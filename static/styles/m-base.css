@@ -3,26 +3,35 @@
     margin: 0;
     padding: 0;
 }
+body{
+    width: 100%;
+    height: auto;
+    float: left;
+
+}
 header{
+    background-color: white;
     display: flex;
     justify-content: space-between;
+    position: fixed;
     height: 60px;
     width: 100%;
     box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
 -webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
 -moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.6);
+z-index: 1000;
 }
 .main-body{
-    position: relative;
+    float: left;
     width: 100%;
-    height: 90vh;
-
+    height: auto;
+    margin-top: 60px;
     overflow: hidden;
     /* -ms-overflow-style: none; 
     scrollbar-width: none;   */
 }
 .scroll-container{
-    height: 98%;
+    height: auto;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -57,7 +66,8 @@ header{
 }
 .profile-details-box{
     width: 100%;
-    height: 49%;
+    height: 62%;
+    overflow-y: scroll;
 }
 .menu-list{
     list-style: none;
@@ -76,13 +86,11 @@ header{
     font-size: 22px;
 }
 #hidden-menu{
-    z-index: 1000;
-    position: absolute;
+    z-index: 999;
     width: 90%;
+    position: fixed;
     height: 100%;
-    
     transition: all 1s;
-    height: 100vh;
     background-color: rgb(9 46 32 / 93%);
 }
 .visible-m{
@@ -94,9 +102,9 @@ header{
 footer{
     z-index: 1500;
     background-color: white;
-    position: absolute;
-    bottom: 0;
+    bottom: 0px;
     display: flex;
+    position: fixed;
     height: 60px;
     width: 100%;
     flex-direction: row;
