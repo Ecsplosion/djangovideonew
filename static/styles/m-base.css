@@ -7,7 +7,7 @@ body{
     width: 100%;
     height: auto;
     float: left;
-
+    overflow-x: hidden;
 }
 header{
     background-color: white;
